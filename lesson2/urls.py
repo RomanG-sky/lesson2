@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.http import HttpResponse
+from django.template.context_processors import request
 from django.urls import path
 
 
@@ -29,9 +30,10 @@ def test_main(request):
 def main_page_home_python(request):
     return HttpResponse(f'<h1>{main_page_home_python.__name__}</h1>')
 
-
+def path_link(link):
+    return f'{link}/'
 def link(request):
-    return HttpResponse('<h1><link> http://127.0.0.1:8000/link </link></h1>')
+    return HttpResponse(f'<h1><a href>127.0.0.1:8000/task2.3/</a><h1>')
 
 
 urlpatterns = [
@@ -39,5 +41,5 @@ urlpatterns = [
     path('test/', test),
     path('test/main/', test_main),
     path('main_page/home/python/', main_page_home_python),
-    path('link/', link),
+    path(path_link('task2.3'),link),
 ]
