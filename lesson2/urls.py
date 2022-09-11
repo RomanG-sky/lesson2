@@ -33,7 +33,7 @@ def test_main(request):
 # def path_link(link):
 #     return f'{link}/'
 # def link(request):
-#     return HttpResponse(f'<h1><a href>127.0.0.1:8000/task2.3/</a><h1>')
+#   return HttpResponse(f'<h1><a href>127.0.0.1:8000/task2.3/</a><h1>')
 
 
 

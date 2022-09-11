@@ -6,6 +6,7 @@ class Post(models.Model):
         UAH = "Hryvnya"
         USD = "US Dollar"
         EUR = "Euro"
+
     title = models.CharField(max_length=40)
     content = models.TextField()
     update = models.DateTimeField(auto_now=True)
