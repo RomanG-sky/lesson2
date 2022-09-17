@@ -6,6 +6,9 @@ class PostModelAdmin(admin.ModelAdmin):
     list_display_links = ('update','url_instruction')
     list_editable = ('title',)
     list_filter = ('update','timestamp','price')
+    list_per_page = 1
+
+
 
 
 

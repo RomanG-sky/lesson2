@@ -1,11 +1,15 @@
 from django.db import models
 
-# Create your models here.
+
+class Currency(models.TextChoices):
+    UAH = "Hryvnya"
+    USD = "US Dollar"
+    EUR = "Euro"
+
+
 class Post(models.Model):
-    class Currency(models.TextChoices):
-        UAH = "Hryvnya"
-        USD = "US Dollar"
-        EUR = "Euro"
+
+
 
     title = models.CharField(max_length=40)
     content = models.TextField()
