@@ -1,41 +1,80 @@
-from django.shortcuts import HttpResponse
+from django.shortcuts import HttpResponse,render
 
 
 
 def book_add(request):
-    return HttpResponse('<h1>book add</h1>')
+    context ={
+    }
+    return render(request, 'book_add.html')
 
 def book_show(request):
-    return HttpResponse('<h1>show book</h1>')
+    context = {
+    }
+    return render(request, 'book_show.html')
 
 def book_update(request):
-    return HttpResponse('<h1>book update</h1>')
+    context = {
+    }
+    return render(request, 'book_edite.html')
+
 
 def book_remove(request):
-    return HttpResponse('<h1>book remove</h1>')
+    context = {
+    }
+    return render(request, 'book_del.html', context)
+
 
 def author_add(request):
-    return HttpResponse('<h1>author add</h1>')
+    return render(request, 'author_add.html')
+
 
 def author_show(request):
-    return HttpResponse('<h1>author book</h1>')
+    context = {
+    }
+    return render(request, 'author_show.html', context)
+
 
 def author_update(request):
-    return HttpResponse('<h1>author update</h1>')
+    context = {
+    }
+    return render(request, 'author_edite.html', context)
+
 
 def author_remove(request):
-    return HttpResponse('<h1>author_remove</h1>')
+    context = {
+    }
+    return render(request, 'author_del.html')
+
 
 def book_shop_add_sell(request):
-    return HttpResponse('<h1>author add sell position</h1>')
+    context = {
+    }
+    return render(request, 'book_shop_add.html')
+
 
 def book_shop_show_sell(request):
-    return HttpResponse('<h1>author book sell position</h1>')
+    context = {
+    }
+    return render(request, 'book_shop_show.html', context)
+
 
 def book_shop_update_sell(request):
-    return HttpResponse('<h1>author update sell position</h1>')
+    context = {
+    }
+    return render(request, 'book_shop_edite.html', context)
+
 
 def book_shop_remove_sell(request):
-    return HttpResponse('<h1>shop remove sell position</h1>')
+    context = {
+    }
+    return render(request, 'book_shop_del.html', context)
+
+
 def admin_page(requqest):
     return HttpResponse(f'<h1><a href= "http://127.0.0.1:8000/admin/">Link for admin part</a>.<h1>')
+
+def base_page(requqest):
+    context ={
+
+    }
+    return render(requqest, 'unit.html', context)

@@ -1,0 +1,57 @@
+@import url(reset.css);
+.Paradice {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: black;
+  text-align: center;
+  color: whitesmoke;
+  font-size: 100px;
+  font-family: 'Zen Tokyo Zoo', cursive;
+  
+  }
+
+.Height {
+  width: 14.28%;
+  height: 100%;
+  margin: 4px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  float: left;
+  
+}
+.Height::after {
+    content: "";
+    display: block;
+    clear: both;}
+.A {
+  background: #a73737;
+  background: -webkit-linear-gradient(to bottom, #7a2828, #a73737);
+  background: linear-gradient(to bottom, #7a2828, #a73737);
+}
+.B {
+  background: #373b44;
+  background: -webkit-linear-gradient(to bottom, #4286f4, #373b44);
+  background: linear-gradient(to bottom, #4286f4, #373b44);
+}
+.C {
+  background: #a8ff78;
+  background: -webkit-linear-gradient(to bottom, #78ffd6, #a8ff78);
+  background: linear-gradient(to bottom, #78ffd6, #a8ff78);
+}
+.D {
+  background: #5a3f37;
+  background: -webkit-linear-gradient(to bottom, #2c7744, #5a3f37);
+  background: linear-gradient(to bottom, #2c7744, #5a3f37);
+}
+.E {
+  background: #ef3b36;
+  background: -webkit-linear-gradient(to bottom, #ef3b36 ,  #ffffff);
+  background: linear-gradient(to bottom, #ef3b36,  #ffffff);
+}
+.F {
+  background: #1e130c;
+  background: -webkit-linear-gradient(to bottom, #9a8478, #1e130c);
+  background: linear-gradient(to bottom, #9a8478, #1e130c);
+}

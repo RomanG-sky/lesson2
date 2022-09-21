@@ -14,10 +14,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.http import HttpResponse
-from django.template.context_processors import request
 from django.urls import path, include
 from shop import views
+
 # def test(request):
 #     return HttpResponse(f'<h1>{test.__name__}</h1>')
 #
@@ -37,7 +36,7 @@ from shop import views
 
 
 urlpatterns = [
-    path('',views.admin_page),
+    path('', views.admin_page),
     path('admin/', admin.site.urls),
     path('blog/', include('blog.urls')),
     path('shop/', include('shop.urls')),
