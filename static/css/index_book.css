@@ -1,0 +1,128 @@
+@import url(reset.css);
+@import url(../fonts/font.css);
+.Top {
+  width: 100vw;
+  height: 10vh;
+  background-color: #eeefef;
+  text-align: center;
+  color: maroon;
+  padding: 2% 0;
+  position: absolute;
+}
+#tex {
+  font-family: "Bebas Neue";
+  font-size: xx-large;
+
+}
+.Top:hover{
+  background-color: coral;
+  cursor: pointer;
+}
+.Left {
+  width: 4vw;
+  height: 100vh;
+  background-color: rgb(187, 187, 192);
+  position: absolute;
+  float: left;
+}
+.Light::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.Right {
+  margin-top: -90vh;
+  width: 4vw;
+  height: 100vh;
+  background-color:rgb(187, 187, 192);
+  float: right;
+  position: relative;
+}
+.Right::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.MiddleBig {
+  height: 90vh;
+  width: 90vw;
+  background-color: white;
+  margin: auto;
+}
+
+.Text {
+  font-family: "Bebas Neue";
+  text-align: justify;
+  margin-top: 17vh;
+  height: 70vh;
+  width: 42vw;
+  background-color: white;
+  float: right;
+  padding: 0 10px;
+  font: x-large;
+  line-height: 2;
+}
+.ABOUT {
+  font-family: "Bebas Neue";
+  font-size: x-large;
+}
+.ABOUT:hover {
+background-color: coral;
+cursor: pointer;
+border-radius:  80px/100px;
+}
+.Pic {
+  height: 40vh;
+  width: 42vw;
+  background-color: white;
+}
+.BigPic1 {
+  height: 10vh;
+  width: 42vw;
+}
+.BigPic {
+  height: 40vh;
+  margin-top: 7vh;
+  width: 39.5vw;
+  background-image: url(./Marvel_Studios_logo.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: double 3px;
+}
+.BigPic:hover{
+  cursor: pointer;
+
+}
+.SmallPic {
+  height: 10vh;
+  width: 8vw;
+  border: double 3px;
+  background-image: url(./Marvel_Studios_logo.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: inline-block;
+  margin-left: 4.9vh;
+}
+.SmallPic:hover{
+  cursor: pointer;
+}
+.Pic1 {
+  margin-left: -4.9vh;
+  height: 10vh;
+  width: 42vw;
+  display: inline-block;
+  margin-top: 10vh;
+
+}
+.p {
+  font-family: "Bebas Neue";
+  font-size: 5vh;
+}
+
+
+.hr {
+  height: 5px;
+  border: 0;
+  background-color: rgb(255, 0, 0);
+}
