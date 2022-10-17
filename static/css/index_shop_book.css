@@ -1,13 +1,55 @@
 @import url(reset.css);
 @import url(../fonts/font.css);
 
+
 .Backgroud {
     background: linear-gradient(to bottom, #a8ff78, #78ffd6);
     width: 100%;
     height: 100%;
-    position: fixed;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+
 }
 
+.BB {
+    width: 30%;
+    height: 40%;
+    margin: 10px auto;
+    border: 2px solid black;
+    margin-top: 15vh;
+    border-radius: 20px;
+    display: inline-block;
+    justify-content: center;
+    vertical-align: center;
+
+}
+
+.bb {
+    padding: 5% 1% 1% 2%;
+    width: 45%;
+    height: 90%;
+    border-radius: 20px;
+    display: inline-block;
+    justify-content: center;
+    vertical-align: center;
+}
+.bbText {
+    padding: 3% 1% 1% 1%;
+    width: 45%;
+    height: 90%;
+    display: inline-block;
+    justify-content: start;
+    vertical-align: middle;
+    color: darkblue;
+    font-size: 26px;
+    font-family: "Bebas Neue";
+    text-align: center;
+}
+.Topic{
+    font-size: 46px;
+    font-family: "Bebas Neue";
+}
 .Top {
     width: 100vw;
     height: 10vh;
@@ -62,9 +104,17 @@
 }
 
 .Top2 {
-    text-align: center;
+    text-align: start;
     font-family: "Bebas Neue";
     font-size: 8vh;
     align-items: center;
     padding-left: 2vw;
+    display: flex;
 }
+
+.Image {
+    height: 100%;
+    width: 100%;
+    border-radius: 7%;
+}
+

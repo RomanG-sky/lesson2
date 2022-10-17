@@ -1,0 +1,13 @@
+@import url(reset.css);
+@font-face {font-family: ''; src: url('../fonts/BebasNeue-Regular.ttf'); src: local("Bebas Neue") }
+@import url(../fonts/font.css);
+
+.Top {
+    text-align: center;
+    font-family: "Bebas Neue";
+    font-size: 8vh;
+    align-items: center;
+    padding-left: 2vw;
+}
+
+

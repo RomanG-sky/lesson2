@@ -1,4 +1,6 @@
 from django.shortcuts import HttpResponse,render
+from shop.models import Book_shop
+from shop.models import Book
 
 
 
@@ -75,6 +77,30 @@ def admin_page(requqest):
 
 def base_page(requqest):
     context ={
-
     }
     return render(requqest, 'unit.html', context)
+def shop_comics(requqest):
+    queryset = Book_shop.objects.all()
+    context ={
+    'title':'Comics',
+    'object_list':queryset,
+    'filter' : 'комікси'
+    }
+    return render(requqest, 'book_shop_comics.html', context)
+def shop_historical(requqest):
+    queryset = Book_shop.objects.all()
+    context ={
+    'title':'Historical story',
+    'object_list':queryset,
+    'filter' : 'історична повість'
+    }
+    return render(requqest, 'book_shop_historical.html', context)
+
+def shop_poems(requqest):
+    queryset = Book_shop.objects.all()
+    context ={
+    'title':'Historical story',
+    'object_list':queryset,
+    'filter' : 'вірші'
+    }
+    return render(requqest, 'book_shop_poems.html', context)

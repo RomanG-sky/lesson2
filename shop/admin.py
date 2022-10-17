@@ -13,12 +13,12 @@ class AuthorAdmin(admin.ModelAdmin):
 
 
 class BookAdmin(admin.ModelAdmin):
-    list_display = ('book_name', 'isbn', 'year_of_issue','genre','book_language','author')
+    list_display = ('book_name', 'isbn', 'year_of_issue','genre','book_language','author','pic')
     list_filter = ('book_name','genre','author')
     list_per_page = 20
 
 class Book_shopAdmin(admin.ModelAdmin):
-    list_display = ('book', 'price', 'currency','quantity','booked','sale')
+    list_display = ('book', 'price', 'currency','quantity','booked','url','sale')
     list_filter = ('sale','book','quantity','price')
 
 
