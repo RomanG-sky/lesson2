@@ -1,6 +1,7 @@
-from django.shortcuts import HttpResponse,render
+from django.shortcuts import HttpResponse, render, get_object_or_404
 from shop.models import Book_shop
 from shop.models import Book
+from shop.models import Genre
 
 
 
@@ -54,10 +55,7 @@ def book_shop_add_sell(request):
     return render(request, 'book_shop_add.html')
 
 
-def book_shop_show_sell(request):
-    context = {
-    }
-    return render(request, 'book_shop_show.html', context)
+
 
 
 def book_shop_update_sell(request):
@@ -66,41 +64,67 @@ def book_shop_update_sell(request):
     return render(request, 'book_shop_edite.html', context)
 
 
-def book_shop_remove_sell(request):
-    context = {
-    }
-    return render(request, 'book_shop_del.html', context)
-
 
 def admin_page(requqest):
     return HttpResponse(f'<h1><a href= "http://127.0.0.1:8000/admin/">Link for admin part</a>.<h1>')
 
-def base_page(requqest):
+def base(requqest):
+    queryset = Book_shop.objects.all()
     context ={
+    'title':'Book shop',
+    'object_list':queryset,
+    'filter': 0
     }
-    return render(requqest, 'unit.html', context)
+    return render(requqest, 'book_shop_base.html', context)
+
+def shop_sale(requqest):
+    queryset = Book_shop.objects.all()
+    context ={
+    'title':'Book shop',
+    'object_list':queryset,
+    'filter': True
+    }
+    return render(requqest, 'book_shop_base.html', context)
+
+def book_shop_show(request, id=None):
+    instance = get_object_or_404(Book_shop,id=id)
+    context = {
+        'title' : 'Book detail',
+        'object' : instance
+        }
+    return render(request, 'book_shop_show_book.html', context)
 def shop_comics(requqest):
     queryset = Book_shop.objects.all()
     context ={
     'title':'Comics',
     'object_list':queryset,
-    'filter' : 'комікси'
+    'filter' : 'comics'
     }
-    return render(requqest, 'book_shop_comics.html', context)
+    return render(requqest, 'book_shop_base_categories.html', context)
 def shop_historical(requqest):
     queryset = Book_shop.objects.all()
     context ={
     'title':'Historical story',
     'object_list':queryset,
-    'filter' : 'історична повість'
+    'filter' : 'historical'
     }
-    return render(requqest, 'book_shop_historical.html', context)
+    return render(requqest, 'book_shop_base_categories.html', context)
 
 def shop_poems(requqest):
     queryset = Book_shop.objects.all()
     context ={
-    'title':'Historical story',
+    'title':'Poems',
     'object_list':queryset,
-    'filter' : 'вірші'
+    'filter' : 'poems'
     }
-    return render(requqest, 'book_shop_poems.html', context)
+    return render(requqest, 'book_shop_base_categories.html', context)
+
+def shop_genre(request):
+    queryset2 = Genre.values
+    queryset = Genre.names
+    context ={
+    'title':'Book shop',
+    'object_list':queryset,
+    'object_list_genre':queryset2
+    }
+    return render(request, 'book_shop_genre.html', context)

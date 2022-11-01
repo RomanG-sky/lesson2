@@ -1,5 +1,6 @@
 @import url(reset.css);
 @import url(../fonts/font.css);
+@import url(../fonts/fontawesome-free-5.15.3-web);
 
 
 .Backgroud {
@@ -12,37 +13,42 @@
 
 }
 
-.BB {
+.Book_block {
     width: 30%;
     height: 40%;
-    margin: 10px auto;
+    margin: 10%;
     border: 2px solid black;
     margin-top: 15vh;
     border-radius: 20px;
     display: inline-block;
-    justify-content: center;
+    justify-content: space-between;
     vertical-align: center;
 
 }
 
-.bb {
+.BB_pic {
     padding: 5% 1% 1% 2%;
     width: 45%;
     height: 90%;
     border-radius: 20px;
     display: inline-block;
     justify-content: center;
-    vertical-align: center;
+    vertical-align: auto;
 }
-.bbText {
+.Image {
+    height: 100%;
+    width: 100%;
+    border-radius: 7%;
+    position: relative;
+}
+
+.BB_Text {
     padding: 3% 1% 1% 1%;
     width: 45%;
     height: 90%;
     display: inline-block;
-    justify-content: start;
-    vertical-align: middle;
+    justify-content: space-between;
     color: darkblue;
-    font-size: 26px;
     font-family: "Bebas Neue";
     text-align: center;
 }
@@ -61,7 +67,7 @@
 .BigTop {
     width: 60vw;
     height: 10vh;
-    background-color: floralwhite;
+    background-color: flora`lwhite;
     position: fixed;
     text-align: start;
     font-family: "Bebas Neue";
@@ -112,9 +118,4 @@
     display: flex;
 }
 
-.Image {
-    height: 100%;
-    width: 100%;
-    border-radius: 7%;
-}
 
