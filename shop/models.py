@@ -2,15 +2,13 @@ from django.db import models
 
 
 class Genre(models.TextChoices):
-    historical = 'historical'
-    novel = 'novel'
-    fantasy = 'fantasy'
-    comics = 'comics'
-    tales = 'tales'
-    poems = 'poems'
+    historical='historical',
+    novel = 'novel',
+    fantasy = 'fantasy',
+    comics = 'comics',
+    tales = 'tales',
+    poems = 'poems',
     prose = 'prose'
-
-
     def __str__(self):
         return self.name
 
@@ -34,8 +32,11 @@ class Author(models.Model):
     last_name = models.CharField(max_length=100)
     date_of_birth = models.DateField(null=True, blank=True)
 
+
+    def get_absolut_url_author(self):
+        return f'author/show/{self.id}'
     def __str__(self):
-        return '{0}, {1}'.format(self.last_name, self.first_name)
+        return '{0} {1}'.format( self.first_name,self.last_name,)
 class Book(models.Model):
     book_name = models.CharField(max_length=20)
     isbn = models.CharField('ISBN', max_length=13,

@@ -1,27 +1,20 @@
-    {% load static %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
     <title>shop/author/add/</title>
     <link href="https://fonts.googleapis.com/css2?family=Zen+Tokyo+Zoo&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{%static 'css/index_author.css'%}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" type="text/css">
+</head>
+<body>
+<div class="Back">
+    <form  class="Form" action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="CREATE AUTHOR">
 
-  </head>
+</form></div>
 
-    <div class="Paradice">
-        <div class="Heigh"><h1>Use this page for create new author.</h1></div>
-        <div class="Height A"><p>a</p></div>
-        <div class="Height B"><p>u</p></div>
-        <div class="Height C"><p>t</p></div>
-        <div class="Height D"><p>h</p></div>
-        <div class="Height E"><p>o</p></div>
-        <div class="Height A"><p>r</p></div>
-        <div class="Height F"><p>/show</p></div>
-     
-      </div>
-    </div>
-  </div>
-
-  <body></body>
+</body>
 </html>
