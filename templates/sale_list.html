@@ -1,3 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  {% for object in object_list %}
+            {% if object.booked > filter or object.sale == filter%}
+
+                    <div class="M_box">
+                        <div class="M_box_pic"><img class="Img" src="{{ object.book.pic.url }}"></div>
+                        <div class="M_box_text">
+                            <div class="MB_text_header">{{ object.book.genre}}</div>
+                            <h1 class="Title"><a style="color: darkblue" class="link_undecor" href="{{ object.get_absolut_url}}" >{{ object.book.book_name }} </a> </h1>
+                            <h2 class="Small_title">{{ object.book.author.first_name}} {{ object.book.author.last_name}}
+                            <br>
+                                Price: {{ object.price }} {{ object.currency }}
+                            <br>
+                                Quantity: {{ object.quantity }}
+                                <br>
+                            <a class="link_undecor" href="{{ object.url }}">Link for a book </a>
+                            </h2>
+                        </div>
+                    </div>
+
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock content %}
+
+{% block bottom %}
+{#    <div class="H_Bigbox">{{ title.capitalize }} MENU</div>#}
+{#    <div class="H_Bigbox"><a href="http://127.0.0.1:8000/shop/author/add/" class="link_undecor">CREATE</a></div>#}
+{% endblock bottom %}
+
+
+
+
+
+
+
+
+
 {% load static %}
 <!DOCTYPE html>
 <head>
@@ -24,28 +64,7 @@
         </div>
     </div>
     <div class="Main">
-        {% for object in object_list %}
-            {% if object.booked > filter or object.sale == filter%}
 
-                    <div class="M_box">
-                        <div class="M_box_pic"><img class="Img" src="{{ object.book.pic.url }}"></div>
-                        <div class="M_box_text">
-                            <div class="MB_text_header">{{ object.book.genre}}</div>
-                            <h1 class="Title"><a style="color: darkblue" class="link_undecor" href="{{ object.get_absolut_url}}" >{{ object.book.book_name }} </a> </h1>
-                            <h2 class="Small_title">{{ object.book.author.first_name}} {{ object.book.author.last_name}}
-                            <br>
-                                Price: {{ object.price }} {{ object.currency }}
-                            <br>
-                                Quantity: {{ object.quantity }}
-                                <br>
-                            <a class="link_undecor" href="{{ object.url }}">Link for a book </a>
-                            </h2>
-                        </div>
-                    </div>
-
-            {% endif %}
-        {% endfor %}
-    </div>
 </div>
 </body>
 </html>

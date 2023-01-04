@@ -8,7 +8,8 @@ class AuthorForm(forms.ModelForm):
         fields = [
             'last_name',
             'first_name',
-            'date_of_birth'
+            'date_of_birth',
+            'pic'
         ]
 
 
@@ -21,15 +22,16 @@ class BookForm(forms.ModelForm):
             'author',
             'genre',
             'year_of_issue',
+            'isbn',
             'pic'
         ]
 
 
-class GenreForm(forms.TextInput):
+class GenreForm(forms.ModelForm):
     class Meta:
-        model = Genre
+        model = Book
         fields = [
-
+            'genre'
         ]
 
 

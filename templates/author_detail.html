@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li {% if message.tags %}  class={{ "message.tags" }}
+            {% endif %}> {{ message|safe }}
+            </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <div class="M_box">
+        <div class="M_box_pic"><img class="Img" src="{{ object.pic.url }}"></div>
+        <h2 class="M_box_text">
+
+            <ul>
+                <li><div class="Small_title"> {{ object.first_name }} {{ object.last_name }}</div></li>
+                <li>
+                    <div class="MB_text_header">Date of birth: <br>{{ object.date_of_birth }}</div>
+                </li>
+                {% for boo in book %}
+                    {% if object.last_name == boo.book.author.last_name %}
+                        <li ><a class="link_undecor" style="color: darkblue;font-size: medium;font: bold"
+                                                                           href="{{ boo.get_absolut_url }}">{{ boo.book.book_name }}</a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </h2>
+    </div>
+    </div>
+{% endblock content %}
+{% block bottom %}
+    <div class="H_Bigbox">{{ title.capitalize }} MENU</div>
+    <div class="H_Bigbox"><a href="http://127.0.0.1:8000/shop/author/add/" class="link_undecor">CREATE</a></div>
+    <div class="H_Bigbox"><a href="http://127.0.0.1:8000/shop/author/edite/{{object.author_id}}" class="link_undecor">EDITE</a></div>
+{% endblock bottom %}

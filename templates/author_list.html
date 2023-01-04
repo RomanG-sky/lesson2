@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for object in object_list %}
+        <div class="UL1">
+            <ul>
+                <li type="disc" class="Title"><a style="color: darkblue" class="link_undecor"
+                                                 href="{{ object.get_absolut_url_author }}"> {{ object }} </a></li>
+                <br>
+            </ul>
+        </div>
+    {% endfor %}
+
+{% endblock content %}
+
+{% block bottom %}
+    <div class="H_Bigbox">{{ title.capitalize }} MENU</div>
+    <div class="H_Bigbox"><a href="http://127.0.0.1:8000/shop/author/add/" class="link_undecor">CREATE</a></div>
+{% endblock bottom %}
+
+
+
+

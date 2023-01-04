@@ -7,8 +7,8 @@ from shop.models import Book
 
 
 class AuthorAdmin(admin.ModelAdmin):
-    list_display = ('first_name', 'last_name', 'date_of_birth')
-    list_filter = ('last_name',)
+    list_display = ('first_name', 'last_name', 'date_of_birth','pic')
+    list_filter = ('first_name',)
     list_per_page = 20
 
 

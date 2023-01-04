@@ -14,21 +14,22 @@
 <body>
 <div class="Background">
     <div class="Header">
-        <div class="H_Bigbox"><a class="link_undecor" href="http://127.0.0.1:8000/shop/">{{ title }}</a></div>
+        <div class="H_Bigbox"><a href="http://127.0.0.1:8000/shop/" class="link_undecor">BOOK SHOP</a></div>
         <div class="H_Smalbox">
             <div class="HS_box"><img src="../static/img/author.png"><a href="http://127.0.0.1:8000/shop/author/" class="link_undecor">Author</a></div>
-            <div class="HS_box" style="background-color: #a8ff78"><img src="../static/img/book.png"><a href="http://127.0.0.1:8000/shop/books/" class="link_undecor">Books</a></div>
-            <div class="HS_box" ><img src="../static/img/genre.png"><a href="http://127.0.0.1:8000/shop/genre/" class="link_undecor">Genre</a></div>
+            <div class="HS_box"><img src="../static/img/book.png"><a href="http://127.0.0.1:8000/shop/book/" class="link_undecor">Books</a></div>
+            <div class="HS_box"><img src="../static/img/genre.png"><a href="http://127.0.0.1:8000/shop/genre/" class="link_undecor">Genre</a></div>
             <div class="HS_box"><img src="../static/img/sale.png"><a href="http://127.0.0.1:8000/shop/sale/" class="link_undecor">Sale</a></div>
             <div class="HS_box"><img src="../static/img/box.png"><a class="link_undecor">My box</a></div>
         </div>
     </div>
     <div class="Main">
+    {% block content %}
         {% for object in object_list %}
-            {% if object.quantity > filter %}
+            {% if object.booked >= filter or object.sale == filter%}
 
                     <div class="M_box">
-                        <div class="M_box_pic"><img class="Img" src="{{ object.book.pic.url }}"></div>
+                        <div class="M_box_pic"><img class="Img" src="{{object.book.pic.url}}"></div>
                         <div class="M_box_text">
                             <div class="MB_text_header">{{ object.book.genre}}</div>
                             <h1 class="Title"><a style="color: darkblue" class="link_undecor" href="{{ object.get_absolut_url}}" >{{ object.book.book_name }} </a> </h1>
@@ -46,15 +47,15 @@
             {% endif %}
         {% endfor %}
     </div>
-<div class="Bottom">
+    {% endblock content %}
+     <div class="Bottom">
     <div style="background-color: whitesmoke" class="B_box">
-        <div  class="H_Bigbox">BOOKS MENU</div>
-        <div class="H_Bigbox"><a href="http://127.0.0.1:8000/shop/books/add" class="link_undecor">CREATE</a> </div>
-        <div class="H_Bigbox"> <a class="link_undecor">EDITE </a></div>
-        <div class="H_Bigbox"> <a class="link_undecor">REMOVE </a></div>
+        {% block bottom %}
+        <div  class="H_Bigbox">{{ title.capitalize }} MENU</div>
+        <div class="H_Bigbox"> <a href="http://127.0.0.1:8000/shop/add/" class="link_undecor">CREATE</a> </div>
+        {% endblock bottom %}
+    </div>
     </div>
 </div>
-</div>
-
 </body>
 </html>

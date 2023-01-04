@@ -1,32 +1,38 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>shop/book/show/</title>
-    <link rel="stylesheet" href="{%static 'css/index.css' %}" type="text/css">
-  </head>
-    <div class="Top"><p id="tex">Book name</p></div>
-    <div class="Left"></div>
-    <div class="MiddleBig">
-      <div class="Text"><p class="ABOUT"> About Book </p>
-        <hr class="hr">
-        Use this page for show  book. 
-      </div>
-    
-      </div>
+{% extends 'base.html' %}
+{% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li {% if message.tags %}  class={{ "message.tags" }}
+            {% endif %}> {{ message }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
+{% block content %}
+    {% for object in object_list %}
 
+            <div class="M_box">
+                <div class="M_box_pic"><img class="Img" src="{{ object.pic.url }}"></div>
+                <div class="M_box_text">
+                    <div class="MB_text_header">{{ object.genre }}</div>
+                    <h1 class="Title"><a style="color: darkblue" class="link_undecor"
+                                         href="{{ object.get_absolut_url_book}}">{{ object.book_name }} </a></h1>
+                    <h2 class="Small_title">{{ object.author.first_name }} {{ object.author.last_name }}
+                        <br>
+                        Year of issue: {{ object.year_of_issue.year }}
+                        <br>
+                        Language: {{ object.book_language }}
+                        <br>
+                        <a class="link_undecor" href="{{ object.url }}">Link for a book </a>
+                    </h2>
+                </div>
+            </div>
+    {% endfor %}
+{% endblock content %}
 
+{% block bottom %}
+    <div class="H_Bigbox">{{ title.capitalize }} MENU</div>
+    <div class="H_Bigbox"><a href="http://127.0.0.1:8000//shop/book/add/" class="link_undecor">CREATE</a></div>
+{% endblock bottom %}
 
-
-    </div>
-    <div class="Right"></div>
-    
-    
-
- 
-  </div>
-  <body></body>
-</html>
+>

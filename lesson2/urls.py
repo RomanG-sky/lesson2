@@ -36,7 +36,7 @@ from shop import views
 
 
 urlpatterns = [
-    path('', views.admin_page),
+    path('', views.book_shop_list),
     path('admin/', admin.site.urls),
     path('blog/', include('blog.urls')),
     path('shop/', include('shop.urls')),
