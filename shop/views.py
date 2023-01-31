@@ -1,7 +1,6 @@
-from django.http import HttpResponseRedirect
-from django.shortcuts import HttpResponse, render, get_object_or_404, HttpResponseRedirect
-from shop.models import Book_shop, Book, Genre, Author
-from shop.forms import AuthorForm, BookForm, GenreForm, BookShopForm
+from django.shortcuts import HttpResponse, render, get_object_or_404, HttpResponseRedirect, redirect
+from shop.models import Book_shop, Book, Author
+from shop.forms import AuthorForm, BookForm, BookShopForm
 from django.contrib import messages
 
 
@@ -57,7 +56,7 @@ def book_shop_update(request, id=None):
     if form.is_valid():
         instance = form.save(commit=False)
         instance.save()
-        messages.success(request, 'Information successful updated!'
+        messages.success(request, '<div class = "btn">Information successful updated!</div>'
                                   '<br>''<br>'
                                   '<button class="btn"> <a class = "link_undecor" href =http://127.0.0.1:8000/shop/author/add/> Add new author </a></button>'
                                   '<br>' '<br>'
@@ -75,6 +74,12 @@ def book_shop_update(request, id=None):
     }
     return render(request, 'shop_add.html', context)
 
+def book_shop_delate(request, id=None):
+    instance = get_object_or_404(Book_shop, id=id)
+    instance.delete()
+    return redirect('shop:book_shop_list')
+
+
 
 def book_list(request):
     queryset = Book.objects.all()
@@ -82,7 +87,7 @@ def book_list(request):
         'title': 'Book',
         'object_list': queryset,
     }
-    return render(request, 'book_show.html', context)
+    return render(request, 'book_list.html', context)
 
 
 def book_create(request):
@@ -145,10 +150,10 @@ def book_update(request, id=None):
     return render(request, 'book_add.html', context)
 
 
-def book_remove(request):
-    context = {
-    }
-    return render(request, 'book_del.html', context)
+def book_remove(request, id=None):
+    instance = get_object_or_404(Book, id=id)
+    instance.delete()
+    return redirect('shop:book_list')
 
 
 def author_list(request):
@@ -249,12 +254,13 @@ def shop_sale(requqest):
 
 
 def genre_list(request):
-    queryset = Genre.values
-    queryset2 = Book_shop.objects.all()
+    queryset2 = Book.objects.all().values_list('genre',flat=True).distinct()
+    queryset = Book.objects.all()
     context = {
         'title': 'Book shop',
-        'object_list': queryset,
-        'books': queryset2
+        'object_list': queryset2,
+        'book': queryset
+
     }
     return render(request, 'genre_list.html', context)
 
@@ -276,7 +282,7 @@ def genre_add(request):
 
 
 def genre_detail(request, id=None):
-    instance = get_object_or_404(Genre, id=id)
+    instance = get_object_or_404(Book_shop, id=id)
     queryset = Book_shop.objects.all()
     context = {
         'title': 'Books for genre',

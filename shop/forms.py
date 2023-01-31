@@ -1,5 +1,5 @@
 from django import forms
-from shop.models import Author, Book, Book_shop, Genre
+from shop.models import Author, Book, Book_shop
 
 
 class AuthorForm(forms.ModelForm):
@@ -25,14 +25,14 @@ class BookForm(forms.ModelForm):
             'isbn',
             'pic'
         ]
-
-
-class GenreForm(forms.ModelForm):
-    class Meta:
-        model = Book
-        fields = [
-            'genre'
-        ]
+#
+#
+# class GenreForm(forms.ModelForm):
+#     class Meta:
+#         model = Book
+#         fields = [
+#             'genre'
+#         ]
 
 
 class BookShopForm(forms.ModelForm):

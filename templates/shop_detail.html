@@ -1,15 +1,5 @@
 {% extends 'base.html' %}
 {% block content %}
-    {% if messages %}
-        <ul class="messages">
-            {% for message in messages %}
-                <li {% if message.tags %}  class={{ "message.tags" }}
-                {% endif %}> {{ message|safe }}
-                </li>
-            {% endfor %}
-        </ul>
-    {% endif %}
-
     <div class="M_box_show">
         <div class="M_box_pic_show"><img class="Img" src="{{ object.book.pic.url }}"></div>
         <div class="M_box_text_show">
@@ -43,6 +33,6 @@
     <div class="H_Bigbox"><a href="http://127.0.0.1:8000/shop/add/" class="link_undecor">CREATE</a></div>
     <div class="H_Bigbox"><a href="http://127.0.0.1:8000/shop/edite/{{ object.book_id }}"
                              class="link_undecor">EDITE </a></div>
-    <div class="H_Bigbox"><a class="link_undecor">REMOVE </a></div>
+    <div class="H_Bigbox"><a href="http://127.0.0.1:8000/shop/delete/{{ object.book_id }}" class="link_undecor">REMOVE </a></div>
 
 {% endblock bottom %}

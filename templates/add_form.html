@@ -1,0 +1,7 @@
+    <div class="Back">
+        <form class="Form" action="" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="{{ title }} {{ title2 }}">
+        </form>
+    </div>

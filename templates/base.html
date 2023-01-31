@@ -12,6 +12,7 @@
     <title>{{ title.capitalize }}</title>
 </head>
 <body>
+ {% include 'messages.html' %}
 <div class="Background">
     <div class="Header">
         <div class="H_Bigbox"><a href="http://127.0.0.1:8000/shop/" class="link_undecor">BOOK SHOP</a></div>
@@ -24,6 +25,7 @@
         </div>
     </div>
     <div class="Main">
+
     {% block content %}
         {% for object in object_list %}
             {% if object.booked >= filter or object.sale == filter%}
