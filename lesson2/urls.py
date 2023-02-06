@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from shop import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 # def test(request):
 #     return HttpResponse(f'<h1>{test.__name__}</h1>')
@@ -46,3 +48,6 @@ urlpatterns = [
     # path('main_page/home/python/', main_page_home_python),
     # path(path_link('task2.3'),link),
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL,
+                          document_root = settings.STATIC_ROOT)

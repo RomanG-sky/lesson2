@@ -11,22 +11,22 @@
 {% block content %}
     {% for object in object_list %}
 
-            <div class="M_box">
-                <div class="M_box_pic"><img class="Img" src="{{ object.pic.url }}"></div>
-                <div class="M_box_text">
-                    <div class="MB_text_header">{{ object.genre }}</div>
-                    <h1 class="Title"><a style="color: darkblue" class="link_undecor"
-                                         href="{{ object.get_absolut_url_book}}">{{ object.book_name }} </a></h1>
-                    <h2 class="Small_title">{{ object.author.first_name }} {{ object.author.last_name }}
-                        <br>
-                        Year of issue: {{ object.year_of_issue.year }}
-                        <br>
-                        Language: {{ object.book_language }}
-                        <br>
-                        <a class="link_undecor" href="{{ object.url }}">Link for a book </a>
-                    </h2>
-                </div>
+        <div class="M_box">
+            <div class="M_box_pic"><img class="Img" src="{{ object.pic.url }}"></div>
+            <div class="M_box_text">
+                <div class="MB_text_header">{{ object.genre }}</div>
+                <h1 class="Title"><a style="color: darkblue" class="link_undecor"
+                                     href="{{ object.get_absolut_url_book }}">{{ object.book_name }} </a></h1>
+                <h2 class="Small_title">{{ object.author.first_name }} {{ object.author.last_name }}
+                    <br>
+                    Year of issue: {{ object.year_of_issue.year }}
+                    <br>
+                    Language: {{ object.book_language }}
+                    <br>
+                    <a class="link_undecor" href="{{ object.url }}">Link for a book </a>
+                </h2>
             </div>
+        </div>
     {% endfor %}
 {% endblock content %}
 

@@ -11,7 +11,7 @@ urlpatterns = [
     path('delete/<int:id>', views.book_shop_delate),
     path('genre/', views.genre_list),
     path('genre/add', views.genre_add),
-    path('genre/show/<int:id>', views.genre_detail),
+    path('genre/show/<str:genre>', views.genre_detail),
     path('sale/', views.shop_sale),
     path('author/', views.author_list),
     path('author/show/<int:id>/', views.author_detail),

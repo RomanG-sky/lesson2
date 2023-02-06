@@ -259,14 +259,15 @@ def genre_list(request):
     context = {
         'title': 'Book shop',
         'object_list': queryset2,
-        'book': queryset
+        'book': queryset,
+        'title2': 'genre',
 
     }
     return render(request, 'genre_list.html', context)
 
 
 def genre_add(request):
-    form = GenreForm(request.POST or None)
+    form = Book.genre(request.POST or None)
 
     if form.is_valid():
         instance = form.save(commit=False)
@@ -281,12 +282,10 @@ def genre_add(request):
     return render(request, 'shop_add.html', context)
 
 
-def genre_detail(request, id=None):
-    instance = get_object_or_404(Book_shop, id=id)
-    queryset = Book_shop.objects.all()
+def genre_detail(request, genre=None):
+    queryset = Book.objects.filter(genre=genre)
     context = {
         'title': 'Books for genre',
-        'object': instance,
-        'books': queryset
+        'object': queryset,
     }
     return render(request, 'genre_detail.html', context)
